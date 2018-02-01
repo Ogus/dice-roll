@@ -1,0 +1,25 @@
+{
+  "name": "dice-roll",
+  "version": "1.0.0",
+  "description": "A small and simple tool to generate random number, based on dice roll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ogus/dice-roll.git"
+  },
+  "keywords": [
+    "random",
+    "dice",
+    "roll",
+    "rng"
+  ],
+  "author": "Ogus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ogus/dice-roll/issues"
+  },
+  "homepage": "https://github.com/Ogus/dice-roll#readme"
+}
