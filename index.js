@@ -55,9 +55,9 @@ function extractParameters(n, s) {
 
 
 function roll (n, s) {
-  var [a, b] = extractParameters(n, s);
-
-  var r = 0;
+  var a, b, r = 0;
+  
+  [a, b] = extractParameters(n, s);
   for (var i = 0; i < a; i++) {
     r += random(1, b);
   }
