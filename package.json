@@ -1,8 +1,8 @@
 {
-  "name": "dice-roll",
+  "name": "mini-dice",
   "version": "1.0.0",
   "description": "A small and simple tool to generate random number, based on dice roll",
-  "author": "Ogus",
+  "author": "ogus",
   "license": "WTFPL",
   "main": "index.js",
   "engines": {
@@ -12,6 +12,9 @@
     "start": "node index.js",
     "test": "mocha --reporter spec"
   },
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  },
   "keywords": [
     "random",
     "dice",
@@ -20,13 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ogus/dice-roll.git"
+    "url": "git+https://github.com/Ogus/mini-dice.git"
   },
   "bugs": {
-    "url": "https://github.com/Ogus/dice-roll/issues"
+    "url": "https://github.com/Ogus/mini-dice/issues"
   },
-  "homepage": "https://github.com/Ogus/dice-roll#readme",
-  "devDependencies": {
-    "mocha": "^5.0.0"
-  }
+  "homepage": "https://github.com/Ogus/mini-dice#readme"
 }

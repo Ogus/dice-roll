@@ -1,5 +1,6 @@
-Dice Roll
+Mini Dice
 =========
+[![Build Status](https://travis-ci.org/Ogus/dice-roll.svg?branch=master)](https://travis-ci.org/Ogus/dice-roll)
 
 A small and simple tool to generate random number, based on dice roll
 
@@ -12,16 +13,13 @@ This tool require Node.js 4.2.4 or more.
 
 ```js
   /* Import the library */
-var diceGenerator = require('dice-roll');
-
-  /* Create a new dice object */
-var dice = new diceGenerator();
+var dice = require('mini-dice');
 
   /* Roll the dice ! */
 var random = dice.roll();
 ```
 
-Output should be an integer between 0 and 5.
+Output should be an integer between 1 and 6.
 
 
 ## Tests
