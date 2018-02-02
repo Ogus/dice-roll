@@ -25,11 +25,11 @@ jobs:
       script: npm install
     - stage: test
       node_js:
-        - "4"
-        - "5"
-        - "6"
-        - "7"
         - "8"
+        - "7"
+        - "6"
+        - "5"
+        - "4"
       script: npm test
     - stage: deploy
       node_js: stable
