@@ -56,16 +56,38 @@ function extractParameters(n, s) {
 
 function roll (n, s) {
   var a, b, r = 0;
-  
+
   [a, b] = extractParameters(n, s);
   for (var i = 0; i < a; i++) {
     r += random(1, b);
   }
   return r;
-};
+}
+
+function highestRoll (n, s) {
+  var a, b, r = 0;
+
+  [a, b] = extractParameters(n, s);
+  for (var i = 0; i < a; i++) {
+    r = Math.max(r, random(1, b));
+  }
+  return r;
+}
+
+function lowestRoll (n, s) {
+  var a, b, r = 0xffffffff;
+
+  [a, b] = extractParameters(n, s);
+  for (var i = 0; i < a; i++) {
+    r = Math.min(r, random(1, b));
+  }
+  return r;
+}
 
 
 module.exports = {
   roll: roll,
+  lowestRoll: lowestRoll,
+  highestRoll: highestRoll,
   random: random
 };
