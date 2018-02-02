@@ -1,6 +1,9 @@
 language:
   node_js
 
+node_js:
+  - stable
+
 notifications:
   email:
     recipients:
@@ -20,20 +23,10 @@ stages:
 jobs:
   include:
     - stage: build
-      node_js:
-        - stable
       script: npm install
     - stage: test
-      node_js:
-        - "8"
-        - "7"
-        - "6"
-        - "5"
-        - "4"
       script: npm test
     - stage: deploy
-      node_js: stable
-      script: echo "Deploying to npm"
       deploy:
         provider: npm
         email: "ogustin.gagnon@gmail.com"
