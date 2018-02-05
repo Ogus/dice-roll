@@ -1,9 +1,6 @@
 language:
   node_js
 
-node_js:
-  - stable
-
 notifications:
   email:
     recipients:
@@ -23,13 +20,21 @@ stages:
 jobs:
   include:
     - stage: build
+      node_js: stable
       script: npm install
     - stage: test
+      node_js:
+        - "9"
+        - "8"
+        - "7"
+        - "6"
       script: npm test
     - stage: deploy
+      node_js: stable
+      script: npm version patch
       deploy:
         provider: npm
         email: "ogustin.gagnon@gmail.com"
-        api_key: "47eda99bed0e8b"
+        api_key: "47eda990-f5e3-4c71-b113-ae6d9bed0e8b"
         on:
           branch: master  # conditional release
