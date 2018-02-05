@@ -14,7 +14,7 @@ function extractParameters(n, s) {
 
   if(!defined && (type_n == "string" || type_n == "number") && type_s == "undefined") {
     // parameters: ("2d6")
-    var temp = String(n).toUpperString().split("D");
+    var temp = String(n).toUpperCase().split("D");
     if(temp.lengh == 2) {
       a = parseInt(temp[0]);
       b = parseInt(temp[1]);
@@ -48,6 +48,10 @@ function extractParameters(n, s) {
   if(!defined) {
     a = 1;
     b = DEFAULT_VALUE;
+  }
+
+  if(a < 1) {
+    a = 1;
   }
 
   return [a, b];
