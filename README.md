@@ -1,6 +1,6 @@
 Mini Dice
 =========
-[![Build Status](https://travis-ci.org/Ogus/mini-dice.svg?branch=master)
+[![Build Status](https://travis-ci.org/Ogus/mini-dice.svg?branch=master)](https://travis-ci.org/Ogus/mini-dice)
 
 A small and simple tool to generate random number, based on dice roll
 
