@@ -4,6 +4,8 @@ Mini Dice
 
 A small and simple tool to generate random number, based on dice roll
 
+
+
 ## Installation
 
 This tool require Node.js 4.2.4 or more.
