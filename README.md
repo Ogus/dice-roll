@@ -1,49 +1,61 @@
 Mini Dice
 =========
-[![Build Status](https://travis-ci.org/Ogus/mini-dice.svg?branch=master)](https://travis-ci.org/Ogus/mini-dice)
+[![Build Status](https://travis-ci.org/ogus/mini-dice.svg?branch=master)](https://travis-ci.org/ogus/mini-dice)
 
-A small and simple tool to generate random number, based on dice roll
+A mini tool to generate random dice roll :game_die:
 
 
 
 ## Installation
 
-This tool require Node.js 4.2.4 or more.
+Install it with **npm**, or import the `index.js` file in your project.
+
+>This tool require Node.js 4.2.4 or more.
 
 
 ## Usage
 
+This module give access to a static class `Dice`.
+
+By default, the rolled dice is a *single 6-sided die*
+
 ```js
-  /* Import the library */
-var dice = require('mini-dice');
+var Dice = require('mini-dice');
 
-  /* Roll the dice ! */
-var random = dice.roll();
+var random = Dice.roll();  // Roll the dice !
 
-  /* Roll 2 12-sided dices */
-var damage = dice.roll("2d12");
+var damage = Dice.roll("2d12");  // Roll two 12-sided dice
+var escape = Dice.roll(3);  // Roll three small dice (6-sided)
+var count = Dice.roll([5, 20]);  // Roll five 20-sided dice
+var wtf = Dice.roll(100, 43);  // Roll a hundred dice with 43 sides
 
-  /* Roll 3 classic dices (6-sided) */
-var escape = dice.roll(3);
-
-  /* Roll 100 dices with 43 sides */
-var wtf = dice.roll(100, 43);
+var critical = Dice.maxRoll('3D20') > 18;  // Find the maximum roll
+var min = Dice.minRoll('4d10');  // Find the minimum roll
 ```
 
-The default roll use a single 6-sided dice. However, you can easily change the number of dices and their type.
+The list of acceptable input is as follow:
 
-Here is a list of acceptable input:
+ +  A `String` with the format `NdS` will roll *N* dice with *S* sides (separator can be 'D' or 'd')
 
-- A single `String` with the format `NdS` (separator can be 'D' or 'd') will roll N dices with S sides: `roll("2d12")`
+ Example: `roll("2d12")`
 
-- A single value with the format `N`, parsable as an `Integer`, will roll N dices with 6 sides: `roll("5")`, `roll(2)`
+ + An Array with the format `[N, S]` will roll *N* dice with *S* sides
 
--Two values with the format `N, S`, parsable as `Integer`, will roll N dices with S sides: `roll(3, 12)`, `roll(2, "20")`
+ Example: `roll([4, 8])`
 
+ + Two arguments with the format `N, S` will roll *N* dice with *S* sides
 
-## Tests
+ Example: `roll(3, 12)`
 
-`npm test`
+ +  A single argument with the format `N` will roll *N* dice with *6* sides
+
+ Example: `roll("5")`
+
+>All input need to be parsable as Integer to be valid
+
+---
+
+You can run the tests on this module (with Mocha) by using `npm test`
 
 
 ## License

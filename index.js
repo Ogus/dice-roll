@@ -1,97 +1,112 @@
-'use strict';
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory();
+  } else {
+    root.FisherYates = factory();
+  }
+}(this, function () {
+  'use strict';
 
-var DEFAULT_VALUE = 6;
+  const DEFAULT_NUMBER = 1;
+  const DEFAULT_SIZE = 6;
 
-function random(a,b) {
-  return a + Math.floor(Math.random()*(b+1-a));
-}
+  function random(size) {
+    return 1 + Math.floor(Math.random() * size);
+  }
 
-function extractParameters(n, s) {
-  var type_n = typeof(n);
-  var type_s = typeof(s);
-  var a = undefined, b = undefined;
-  var defined = false;
+  /**
+   * Get the result pf a dice roll
+   * @param number - The number of dice, or a string with the number and size if dices
+   * @param size - The size of each dice (optionnal)
+   */
+  function roll(number, size) {
+    var params = extractParameters(number, size);
+    var result = 0;
+    for (var i = 0; i <params.number; i++) {
+      result += random(params.size);
+    }
+    return result;
+  }
 
-  if(!defined && (type_n == "string" || type_n == "number") && type_s == "undefined") {
-    // parameters: ("2d6")
-    var temp = String(n).toUpperCase().split("D");
-    if(temp.lengh == 2) {
-      a = parseInt(temp[0]);
-      b = parseInt(temp[1]);
+  /**
+   * Get the highest roll
+   */
+  function maxRoll(number, size) {
+    var params = extractParameters(number, size);
+    var result = 0;
+    for (var i = 0; i < params.number; i++) {
+      result = Math.max(result, random(params.size));
+    }
+    return result;
+  }
 
-      if( !(isNaN(a) || isNaN(b)) ) {
-        defined = true;
+  /**
+   * Get the lowest roll
+   */
+  function minRoll(number, size) {
+    var params = extractParameters(number, size);
+    var result = params.size;
+    for (var i = 0; i < params.number; i++) {
+      result = Math.min(result, random(params.size));
+    }
+    return result;
+  }
+
+  function extractParameters(n, s) {
+    var params = {
+      number: DEFAULT_NUMBER,
+      size: DEFAULT_SIZE
+    };
+    var a = null, b = null;
+
+    // n == "2" or n == "2d20"
+    if (typeof(n) == 'string') {
+      a = n.toUpperCase().split("D");
+      b = parseInt(a[0]);
+      if (!isNaN(b)) {
+        params.number = b;
+      }
+      b = parseInt(a[1]);
+      if (!isNaN(b)) {
+        params.size = b;
       }
     }
-
-    // parameters: ("2") or (2)
-    else {
+    // n == 2
+    else if (typeof(n) == 'number') {
       a = parseInt(n);
-      if(!isNaN(a)) {
-        b = DEFAULT_VALUE;
-        defined = true;
+      if (!isNaN(a)) {
+        params.number = a;
       }
     }
-  }
-
-  // parameters: ("2", "6") or ("2", 6) or (2, "6") or (2, 6)
-  if(!defined && (type_n == "string" || type_n == "number") && (type_s == "string" || type_s == "number")) {
-    a = parseInt(n);
-    b = parseInt(s);
-
-    if( !(isNaN(a) || isNaN(b)) ) {
-      defined = true;
+    // n == [2, 20]
+    else if (Array.isArray(n)) {
+      a = parseInt(n[0]);
+      if (!isNaN(a)) {
+        params.number = a;
+      }
+      a = parseInt(n[1]);
+      if (!isNaN(a)) {
+        params.size = a;
+      }
     }
+    // s == "20" or s == "20"
+    if (typeof(s) == 'string' || typeof(s) == 'number') {
+      a = parseInt(s);
+      if (!isNaN(a)) {
+        params.size = a;
+      }
+    }
+    return params;
   }
 
-  // set to default
-  if(!defined) {
-    a = 1;
-    b = DEFAULT_VALUE;
+  var Dice = {
+    roll: roll,
+    maxRoll: maxRoll,
+    minRoll: minRoll,
+    random: random
   }
 
-  if(a < 1) {
-    a = 1;
-  }
-
-  return [a, b];
-}
-
-
-function roll (n, s) {
-  var a, b, r = 0;
-
-  [a, b] = extractParameters(n, s);
-  for (var i = 0; i < a; i++) {
-    r += random(1, b);
-  }
-  return r;
-}
-
-function highestRoll (n, s) {
-  var a, b, r = 0;
-
-  [a, b] = extractParameters(n, s);
-  for (var i = 0; i < a; i++) {
-    r = Math.max(r, random(1, b));
-  }
-  return r;
-}
-
-function lowestRoll (n, s) {
-  var a, b, r = 0xffffffff;
-
-  [a, b] = extractParameters(n, s);
-  for (var i = 0; i < a; i++) {
-    r = Math.min(r, random(1, b));
-  }
-  return r;
-}
-
-
-module.exports = {
-  roll: roll,
-  lowestRoll: lowestRoll,
-  highestRoll: highestRoll,
-  random: random
-};
+  return Dice;
+}));
