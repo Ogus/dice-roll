@@ -1,5 +1,4 @@
-language:
-  node_js
+language: node_js
 
 notifications:
   email:
@@ -34,6 +33,6 @@ jobs:
       deploy:
         provider: npm
         email: "ogustin.gagnon@gmail.com"
-        api_key: "47eda990-f5e3-4c71-b113-ae6d9bed0e8b"
+        api_key: API_KEY
         on:
-          branch: master  # conditional release
+          branch: master
