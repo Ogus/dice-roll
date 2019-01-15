@@ -33,6 +33,6 @@ jobs:
       deploy:
         provider: npm
         email: "ogustin.gagnon@gmail.com"
-        api_key: API_KEY
+        api_key: ${API_KEY}
         on:
           branch: master
