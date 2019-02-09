@@ -1,13 +1,8 @@
 {
   "name": "mini-dice",
-  "version": "1.2.2",
-  "description": "A mini tool to generate random dice roll",
-  "author": "ogus",
-  "license": "WTFPL",
-  "main": "index.js",
-  "engines": {
-    "node": ">=4.2.4"
-  },
+  "version": "1.2.3",
+  "description": "A mini tool to generate random number based on dice roll",
+  "main": "src/mini-dice.js",
   "scripts": {
     "start": "node index.js",
     "test": "mocha --reporter nyan"
@@ -22,6 +17,8 @@
     "rng",
     "mini-dice"
   ],
+  "author": "ogus",
+  "license": "WTFPL",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ogus/mini-dice.git"

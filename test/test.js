@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Dice = require('../index');
+var Dice = require('../src/mini-dice');
 
 describe('Dice', function() {
 

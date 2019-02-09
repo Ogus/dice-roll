@@ -1,12 +1,5 @@
 language: node_js
 
-notifications:
-  email:
-    recipients:
-      - ogustin.gagnon@gmail.com
-    on_success: never
-    on_failure: always
-
 cache:
   directories:
     - "node_modules"
@@ -22,11 +15,7 @@ jobs:
       node_js: stable
       script: npm install
     - stage: test
-      node_js:
-        - "9"
-        - "8"
-        - "7"
-        - "6"
+      node_js: stable
       script: npm test
     - stage: deploy
       node_js: stable

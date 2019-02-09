@@ -1,6 +1,6 @@
 # Mini Dice
 
-A *mini* tool to generate random dice roll :game_die:
+A *mini* tool to generate random number based on dice roll :game_die:
 
 [![Build Status](https://travis-ci.org/ogus/mini-dice.svg?branch=master)](https://travis-ci.org/ogus/mini-dice)
 
