@@ -1,6 +1,6 @@
 {
   "name": "mini-dice",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A mini tool to generate random number based on dice roll",
   "author": "ogus",
   "license": "WTFPL",

@@ -88,7 +88,7 @@ It can also be installed by including the `mini-dice.js` file in your project
 
 ## License
 
-This project is licensed under the WTFPL - see [LICENSE](LICENSE.md) for more details
+This project is licensed under the WTFPL - see [LICENSE](LICENSE) for more details
 
 
 ## Acknowledgments
