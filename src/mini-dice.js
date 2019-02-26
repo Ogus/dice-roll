@@ -4,7 +4,7 @@
   } else if (typeof module === 'object' && module.exports) {
     module.exports = factory();
   } else {
-    root.FisherYates = factory();
+    root.Dice = factory();
   }
 }(this, function () {
   'use strict';
@@ -106,7 +106,7 @@
     maxRoll: maxRoll,
     minRoll: minRoll,
     random: random
-  }
+  };
 
   return Dice;
 }));
